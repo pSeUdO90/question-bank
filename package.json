@@ -1,0 +1,23 @@
+{
+  "name": "question-bank-builder",
+  "productName": "Question Bank Builder",
+  "version": "0.1.0",
+  "description": "Offline IIT JEE and NEET question-bank import and review workspace",
+  "private": true,
+  "type": "module",
+  "main": "desktop/main.js",
+  "scripts": {
+    "start": "node server.js",
+    "desktop": "electron-forge start",
+    "package": "electron-forge package",
+    "make": "electron-forge make",
+    "worker:build": "pyinstaller --noconfirm --clean --onefile --name question-bank-worker --distpath desktop/worker python/worker.py",
+    "build:offline": "node build-offline.js",
+    "test": "node --test test/*.test.js"
+  },
+  "devDependencies": {
+    "@electron-forge/cli": "7.11.2",
+    "@electron-forge/maker-squirrel": "7.11.2",
+    "electron": "43.4.1"
+  }
+}
